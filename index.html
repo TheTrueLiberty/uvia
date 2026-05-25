@@ -1,110 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UVIA — Professional Nail Care Technology</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { font-family: 'Inter', system-ui, sans-serif; }
-    .hero-bg { background-color: #0b0a12; }
-    .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); }
-    section { scroll-margin-top: 80px; }
-  </style>
-</head>
-<body class="hero-bg text-white">
 
-  <!-- NAV -->
-  <nav class="fixed top-0 left-0 right-0 z-50 py-6 px-8 flex justify-between items-center border-b border-white/10 bg-[#0b0a12]/90 backdrop-blur-md">
-    <img src="UVIA_Light_logo.png" alt="UVIA" class="h-9 w-auto">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400&display=swap');
+
+  .u { background:#0b0a12; color:#f5f5f7; font-family:'DM Sans',sans-serif; font-weight:300; overflow:hidden; border-radius:12px; position:relative; }
+
+  .blob { position:absolute; border-radius:50%; pointer-events:none; }
+  .b1 { width:600px; height:400px; top:-100px; left:50%; transform:translateX(-50%); background:radial-gradient(ellipse, rgba(110,70,200,0.22) 0%, transparent 65%); filter:blur(60px); }
+  .b2 { width:350px; height:350px; top:38%; right:-80px; background:radial-gradient(ellipse, rgba(90,55,170,0.14) 0%, transparent 70%); filter:blur(50px); }
+
+  /* NAV */
+  .u-nav { display:flex; justify-content:space-between; align-items:center; padding:32px 48px; position:relative; z-index:2; }
+  .u-logo { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; letter-spacing:0.22em; color:#f5f5f7; }
+  .u-nav-tag { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#a1a1a6; }
+
+  /* HERO */
+  .u-hero { padding:80px 48px 72px; text-align:center; position:relative; z-index:2; }
+  .u-h1 { font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300; line-height:1.1; letter-spacing:-0.01em; color:#f5f5f7; max-width:640px; margin:0 auto 24px; }
+  .u-h1 em { font-style:italic; color:rgba(190,165,255,0.85); }
+  .u-lead { font-size:16px; line-height:1.75; color:#a1a1a6; max-width:480px; margin:0 auto; font-weight:300; }
+  .u-lead strong { color:rgba(245,245,247,0.85); font-weight:400; }
+
+  /* TEASER */
+  .u-teaser { padding:64px 48px; position:relative; z-index:2; display:flex; justify-content:center; }
+  .u-teaser-inner { max-width:580px; border-left:1px solid rgba(161,161,166,0.2); padding-left:32px; }
+  .u-teaser-inner p { font-size:17px; line-height:1.8; color:rgba(245,245,247,0.75); font-weight:300; margin:0 0 20px; }
+  .u-teaser-inner p:last-child { margin:0; font-size:13px; color:#a1a1a6; letter-spacing:0.04em; }
+
+  /* DIVIDER */
+  .u-div { margin:0 48px; height:0.5px; background:linear-gradient(to right, transparent, rgba(161,161,166,0.2), transparent); }
+
+  /* FOUNDERS */
+  .u-founders { padding:64px 48px; position:relative; z-index:2; }
+  .u-section-label { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#a1a1a6; text-align:center; margin-bottom:48px; }
+  .u-founders-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; max-width:600px; margin:0 auto; }
+  .u-founder { text-align:center; }
+  .u-founder-img { width:100px; height:100px; border-radius:50%; object-fit:cover; margin:0 auto 18px; display:block; border:0.5px solid rgba(161,161,166,0.2); filter:grayscale(100%); }
+  .u-founder-ph { width:100px; height:100px; border-radius:50%; margin:0 auto 18px; display:flex; align-items:center; justify-content:center; border:0.5px solid rgba(161,161,166,0.2); background:rgba(161,161,166,0.07); font-family:'Cormorant Garamond',serif; font-size:28px; color:rgba(161,161,166,0.4); }
+  .u-fname { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:#f5f5f7; margin-bottom:4px; }
+  .u-frole { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#a1a1a6; margin-bottom:14px; }
+  .u-fbio { font-size:13px; line-height:1.7; color:rgba(161,161,166,0.8); font-weight:300; }
+
+  /* CTA */
+  .u-cta { padding:64px 48px 56px; text-align:center; position:relative; z-index:2; }
+  .u-cta-label { font-size:14px; line-height:1.75; color:#a1a1a6; max-width:380px; margin:0 auto 32px; font-weight:300; }
+  .u-email { display:inline-block; font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; color:#f5f5f7; letter-spacing:0.04em; border-bottom:0.5px solid rgba(161,161,166,0.3); padding-bottom:4px; text-decoration:none; transition:color 0.3s, border-color 0.3s; }
+  .u-email:hover { color:rgba(190,165,255,0.9); border-color:rgba(190,165,255,0.4); }
+
+  /* FOOTER */
+  .u-footer { padding:20px 48px; border-top:0.5px solid rgba(161,161,166,0.1); text-align:center; position:relative; z-index:2; }
+  .u-footer p { font-size:11px; color:rgba(161,161,166,0.4); letter-spacing:0.06em; }
+</style>
+
+<div class="u">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+
+  <nav class="u-nav">
+    <span class="u-logo">UVIA</span>
+    <span class="u-nav-tag">Professional Nail Care Technology</span>
   </nav>
 
-  <!-- HERO -->
-  <section class="min-h-screen flex items-center justify-center text-center px-6 relative">
-    <div class="max-w-5xl mx-auto">
-      <h1 class="text-5xl md:text-7xl font-medium tracking-tighter leading-none mb-10">
-        Engineering the New Standard<br>in Professional Nail Care Technology
-      </h1>
-      <p class="text-2xl md:text-3xl text-[#a1a1a6ff] max-w-4xl mx-auto leading-tight">
-        A premium B2B ecosystem combining advanced hardware automation with scientific precision.<br>
-        <span class="text-white">Launching globally.</span>
-      </p>
-    </div>
+  <section class="u-hero">
+    <h1 class="u-h1">Engineering the New Standard in <em>Professional Nail Care</em> Technology</h1>
+    <p class="u-lead">A premium B2B ecosystem combining advanced hardware automation with scientific precision. <strong>Launching globally.</strong></p>
+  </section>
 
-    <!-- Subtle scroll indicator -->
-    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center">
-      <span class="text-xs tracking-widest text-[#a1a1a6ff] mb-2">SCROLL</span>
-      <div class="w-px h-12 bg-gradient-to-b from-transparent via-[#a1a1a6ff] to-transparent"></div>
+  <div class="u-div"></div>
+
+  <section class="u-teaser">
+    <div class="u-teaser-inner">
+      <p>We believe professional salons deserve laboratory-grade reliability. UVIA is quietly developing a next-generation hardware ecosystem designed to eliminate occupational health hazards, maximize workflow ergonomics, and bring data-driven certainty to high-end beauty professionals.</p>
+      <p>Currently in closed beta testing with selected industry leaders.</p>
     </div>
   </section>
 
-  <!-- TEASER -->
-  <section class="py-32 border-t border-white/10">
-    <div class="max-w-3xl mx-auto px-6">
-      <div class="glass border border-white/10 rounded-3xl p-14 md:p-20">
-        <p class="text-2xl leading-relaxed text-[#f5f5f7ff]">
-          We believe professional salons deserve laboratory-grade reliability. 
-          UVIA is quietly developing a next-generation hardware ecosystem 
-          designed to eliminate occupational health hazards, maximize workflow ergonomics, 
-          and bring data-driven certainty to high-end beauty professionals.
-        </p>
-        <p class="mt-10 text-[#a1a1a6ff] text-lg">
-          Currently in closed beta testing with selected industry leaders.
-        </p>
+  <div class="u-div"></div>
+
+  <section class="u-founders">
+    <p class="u-section-label">The Founders</p>
+    <div class="u-founders-grid">
+      <div class="u-founder">
+        <div class="u-founder-ph">A</div>
+        <p class="u-fname">Artūrs</p>
+        <p class="u-frole">Co-Founder &amp; CTO</p>
+        <p class="u-fbio">14+ years of expertise in industrial hardware design, automation systems, and advanced manufacturing setups.</p>
+      </div>
+      <div class="u-founder">
+        <div class="u-founder-ph">A</div>
+        <p class="u-fname">Alise</p>
+        <p class="u-frole">Co-Founder &amp; CEO</p>
+        <p class="u-fbio">15+ years of commercial execution, international business operations, and scaling within the professional beauty sector.</p>
       </div>
     </div>
   </section>
 
-  <!-- FOUNDERS -->
-  <section class="py-32 border-t border-white/10">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-4xl font-medium text-center mb-20">The Founders</h2>
-      
-      <div class="grid md:grid-cols-2 gap-20">
-        <!-- Artūrs -->
-        <div class="group text-center">
-          <div class="mx-auto w-72 h-72 rounded-3xl overflow-hidden mb-10 border border-white/10 shadow-2xl transition-all duration-500 group-hover:scale-105">
-            <img src="artur.jpg" alt="Artūrs" class="w-full h-full object-cover">
-          </div>
-          <h3 class="text-3xl font-medium mb-1">Artūrs [Uzvārds]</h3>
-          <p class="text-[#a1a1a6ff] mb-6">Co-Founder & CTO</p>
-          <p class="text-[#a1a1a6ff] max-w-md mx-auto leading-relaxed">
-            14+ years of expertise in industrial hardware design, automation systems, and advanced manufacturing setups.
-          </p>
-        </div>
+  <div class="u-div"></div>
 
-        <!-- Alise -->
-        <div class="group text-center">
-          <div class="mx-auto w-72 h-72 rounded-3xl overflow-hidden mb-10 border border-white/10 shadow-2xl transition-all duration-500 group-hover:scale-105">
-            <img src="alise.jpg" alt="Alise" class="w-full h-full object-cover">
-          </div>
-          <h3 class="text-3xl font-medium mb-1">Alise [Uzvārds]</h3>
-          <p class="text-[#a1a1a6ff] mb-6">Co-Founder & CEO</p>
-          <p class="text-[#a1a1a6ff] max-w-md mx-auto leading-relaxed">
-            15+ years of commercial execution, international business operations, and scaling within the professional beauty sector.
-          </p>
-        </div>
-      </div>
-    </div>
+  <section class="u-cta">
+    <p class="u-cta-label">For investor relations, strategic partnerships, or early-access distribution inquiries:</p>
+    <a href="mailto:info@uviapro.eu" class="u-email">info@uviapro.eu</a>
   </section>
 
-  <!-- CTA -->
-  <section class="py-32 border-t border-white/10 text-center">
-    <div class="max-w-xl mx-auto px-6">
-      <p class="text-xl text-[#a1a1a6ff] mb-10">
-        For investor relations, strategic partnerships, or early-access distribution inquiries:
-      </p>
-      <a href="mailto:info@uviapro.eu" 
-         class="inline-block bg-white text-black font-medium px-16 py-7 rounded-2xl text-2xl hover:scale-105 active:scale-95 transition-all duration-300">
-        info@uviapro.eu
-      </a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-12 text-center text-[#a1a1a6ff] text-sm border-t border-white/10">
-    © 2026 UVIA. All Rights Reserved.
+  <footer class="u-footer">
+    <p>© 2026 UVIA. All Rights Reserved.</p>
   </footer>
-
-</body>
-</html>
+</div>
